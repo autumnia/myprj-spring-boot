@@ -1,4 +1,4 @@
-package com.mycom.sample;
+package com.mycom.sample.controllers;
 
 //import com.jojoldu.book.springboot.config.auth.SecurityConfig;
 import org.junit.Test;
@@ -40,17 +40,17 @@ public class HelloControllerTest {
     }
 
 //    @WithMockUser(roles="USER")
-//    @Test
-//    public void helloDto가_리턴된다() throws Exception {
-//        String name = "hello";
-//        int amount = 1000;
-//
-//        mvc.perform(
-//                get("/hello/dto")
-//                        .param("name", name)
-//                        .param("amount", String.valueOf(amount)))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.name", is(name)))
-//                .andExpect(jsonPath("$.amount", is(amount)));
-//    }
+    @Test
+    public void helloDto가_리턴된다() throws Exception {
+        String name = "hello";
+        int amount = 1000;
+
+        mvc.perform(
+                get("/hello/dto")
+                        .param("name", name)
+                        .param("amount", String.valueOf(amount)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is(name)))
+                .andExpect(jsonPath("$.amount", is(amount)));
+    }
 }
