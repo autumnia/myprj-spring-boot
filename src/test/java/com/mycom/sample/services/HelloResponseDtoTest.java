@@ -1,5 +1,6 @@
-package com.mycom.sample.repository;
+package com.mycom.sample.services;
 
+import com.mycom.sample.services.HelloResponseDto;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
