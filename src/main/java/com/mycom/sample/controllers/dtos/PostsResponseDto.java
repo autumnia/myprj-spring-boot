@@ -1,6 +1,6 @@
 package com.mycom.sample.controllers.dtos;
 
-import com.jojoldu.book.springboot.domain.posts.Posts;
+import com.mycom.sample.domains.posts.*;
 import lombok.Getter;
 
 @Getter

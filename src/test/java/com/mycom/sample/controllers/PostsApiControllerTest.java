@@ -30,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // For mockMvc
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT )
 public class PostsApiControllerTest {
 
     @LocalServerPort
@@ -72,6 +72,7 @@ public class PostsApiControllerTest {
                 .author("author")
                 .build();
 
+        System.out.println( "port: " + port ) ;
         String url = "http://localhost:" + port + "/api/v1/posts";
 
         //when
