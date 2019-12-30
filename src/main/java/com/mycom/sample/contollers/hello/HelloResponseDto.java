@@ -1,4 +1,4 @@
-package com.mycom.sample.repository;
+package com.mycom.sample.contollers.hello;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
