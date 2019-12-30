@@ -53,6 +53,8 @@ public class PostsApiControllerTest {
                 .webAppContextSetup(context)
 //                .apply(springSecurity())
                 .build();
+
+        System.out.println( "port: " + port ) ;
     }
 
     @After
@@ -72,7 +74,6 @@ public class PostsApiControllerTest {
                 .author("author")
                 .build();
 
-        System.out.println( "port: " + port ) ;
         String url = "http://localhost:" + port + "/api/v1/posts";
 
         //when
