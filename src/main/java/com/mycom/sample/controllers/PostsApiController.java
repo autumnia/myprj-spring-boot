@@ -1,7 +1,10 @@
-package com.mycom.sample.contollers;
+package com.mycom.sample.controllers;
 
+import com.mycom.sample.controllers.dtos.PostsListResponseDto;
+import com.mycom.sample.controllers.dtos.PostsResponseDto;
+import com.mycom.sample.controllers.dtos.PostsSaveRequestDto;
+import com.mycom.sample.controllers.dtos.PostsUpdateRequestDto;
 import com.mycom.sample.services.PostsService;
-import com.mycom.sample.contollers.posts.*;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;

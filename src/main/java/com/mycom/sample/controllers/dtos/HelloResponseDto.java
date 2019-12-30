@@ -1,4 +1,4 @@
-package com.mycom.sample.contollers.hello;
+package com.mycom.sample.controllers.dtos;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

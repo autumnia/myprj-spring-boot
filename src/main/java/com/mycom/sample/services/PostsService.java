@@ -1,6 +1,9 @@
 package com.mycom.sample.services;
 
-import com.mycom.sample.contollers.posts.*;
+import com.mycom.sample.controllers.dtos.PostsListResponseDto;
+import com.mycom.sample.controllers.dtos.PostsResponseDto;
+import com.mycom.sample.controllers.dtos.PostsSaveRequestDto;
+import com.mycom.sample.controllers.dtos.PostsUpdateRequestDto;
 import com.mycom.sample.domains.posts.*;
 
 import lombok.RequiredArgsConstructor;

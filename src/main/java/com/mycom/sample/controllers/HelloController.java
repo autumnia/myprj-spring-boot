@@ -1,6 +1,6 @@
-package com.mycom.sample.contollers;
+package com.mycom.sample.controllers;
 
-import com.mycom.sample.contollers.hello.HelloResponseDto;
+import com.mycom.sample.controllers.dtos.HelloResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

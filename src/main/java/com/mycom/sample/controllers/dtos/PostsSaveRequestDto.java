@@ -1,4 +1,4 @@
-package com.mycom.sample.contollers.posts;
+package com.mycom.sample.controllers.dtos;
 
 import com.mycom.sample.domains.posts.Posts;
 
