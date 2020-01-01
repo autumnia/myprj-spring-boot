@@ -19,13 +19,18 @@ public class IndexController {
     private final PostsService postsService;
 
     @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user) {
-        model.addAttribute("posts", postsService.findAllDesc());
-        if (user != null) {
-            model.addAttribute("userName", user.getName());
-        }
+    public String index() {
         return "index";
     }
+
+//    @GetMapping("/")
+//    public String index(Model model, @LoginUser SessionUser user) {
+//        model.addAttribute("posts", postsService.findAllDesc());
+//        if (user != null) {
+//            model.addAttribute("userName", user.getName());
+//        }
+//        return "index";
+//    }
 
     @GetMapping("/posts/save")
     public String postsSave() {
