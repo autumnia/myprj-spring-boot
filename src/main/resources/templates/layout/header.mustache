@@ -17,50 +17,69 @@
     <link href="/css/clean-blog.min.css" rel="stylesheet">
 
     <title>Autumnia</title>
+    <style>
+        body {
+            margin: 150;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-        <!--  로고 -->
-        <a class="navbar-brand" href="/">Autumnia</a>
-        <!-- 우측 막대 바 -->
-        <button class="navbar-toggler" type="button"
-                data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+        <div class="container">
+            <!--  로고 -->
+            <a class="navbar-brand" href="/">Autumnia</a>
+            <!-- 우측 막대 바 -->
+            <button class="navbar-toggler" type="button"
+                    data-toggle="collapse" data-target="#navbarID"
+                    aria-controls="navbarID" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item" active>
-                    <a class="nav-link" href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarID">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" >
+                        <a class="nav-link active" href="https://getbootstrap.com/" target="_blank">Bootstrap
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
 
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
-                        href="#"
-                        data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Youtube
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item"
-                           href="https://www.youtube.com/channel/UC2MGuhIaOP6YLpUx106kTQw" target="_blank">클라이밍</a>
-                        <a class="dropdown-item"
-                           href="https://www.youtube.com/channel/UCpv-ZY90YagforQveNK478g" target="_blank">택견</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item"
-                           href="https://www.youtube.com/channel/UCTBlI37X5buS03gxO4jBXgQ" target="_blank">재즈</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" tabindex="-1"
-                       href="/posts/save"  >Posts</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
+                            href="#"
+                            data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Youtube
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item"
+                               href="https://www.youtube.com/channel/UC2MGuhIaOP6YLpUx106kTQw" target="_new">클라이밍</a>
+                            <a class="dropdown-item"
+                               href="https://www.youtube.com/channel/UCpv-ZY90YagforQveNK478g" target="_new">택견</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item"
+                               href="https://www.youtube.com/channel/UCTBlI37X5buS03gxO4jBXgQ" target="_new">재즈</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tabindex="-1"
+                           href="/posts/save"  >Posts</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link tabindex="-1"
+                           href="#"  >About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tabindex="-1"
+                           href="#"  >login</a>
+                    </li>
+                </ul>
+
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
         </div>
     </nav>
