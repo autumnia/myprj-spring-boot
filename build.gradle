@@ -5,6 +5,7 @@ buildscript {
     repositories {
         mavenCentral()
         jcenter()
+        google()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -24,16 +25,31 @@ targetCompatibility = 1.8
 repositories {
     mavenCentral()
     jcenter()
+    google()
 }
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.projectlombok:lombok')
-
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('com.h2database:h2')
-
     compile('org.springframework.boot:spring-boot-starter-mustache')
 
+    // 롬복 추가
+    compile('org.projectlombok:lombok')
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+
+    // 데이터 베이스 추가
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('com.h2database:h2')
+    runtimeOnly 'mysql:mysql-connector-java'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    runtime('org.springframework.boot:spring-boot-devtools')
+
+    // 문서작업 용도
+    implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    
+    // test 용도
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
