@@ -30,7 +30,7 @@ spring:
     encoding:
       charset: UTF-8
       enabled: true
-      encoding.force: true
+      force: true
   mustache:
     suffix: .mustache
     allow-request-override: false
