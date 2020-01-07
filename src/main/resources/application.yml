@@ -4,19 +4,26 @@ server:
 
 # 로깅 추가
 logging:
+  file: logs/application-debug.log
+  pattern:
+    console: "%d %-5level %logger : %msg %n"
+    file: "%d %-5level [%thread] %logger : %msg %n"
   level:
+    root: ERROR
+    org.springframework.web: ERROR
+    com.mycom: DEBUG
+    org.hibernate: ERROR
     org:
       hibernate:
         type:
           descriptor:
             sql: trace
 
+
 # 스프링 배너 제거
 spring:
   main:
     banner-mode: "off"
-  profiles:
-    active: local
   mustache:
     suffix: .mustache
     allow-request-override: false
@@ -29,6 +36,9 @@ spring:
     expose-request-attributes: false
     expose-session-attributes: false
     expose-spring-macro-helpers: true
+  output:
+    ansi:
+      enabled: DETECT
 
 ---
 spring:
