@@ -1,12 +1,12 @@
 package com.mycom.sample.services;
 
-import com.mycom.sample.controllers.dtos.PostsListResponseDto;
-import com.mycom.sample.controllers.dtos.PostsResponseDto;
-import com.mycom.sample.controllers.dtos.PostsSaveRequestDto;
-import com.mycom.sample.controllers.dtos.PostsUpdateRequestDto;
-import com.mycom.sample.domains.posts.*;
+import com.mycom.sample.controllers.dtos.*;
+import com.mycom.sample.domains.posts.Posts;
+import com.mycom.sample.domains.posts.PostsRepository;
+import com.mycom.sample.controllers.dtos.*;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,9 +26,7 @@ public class PostsService {
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto) {
         Posts posts = postsRepository.findById(id)
-                .orElseThrow(
-                        () -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id)
-                );
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
 
         posts.update(requestDto.getTitle(), requestDto.getContent());
 
@@ -38,9 +36,7 @@ public class PostsService {
     @Transactional
     public void delete (Long id) {
         Posts posts = postsRepository.findById(id)
-                .orElseThrow(
-                        () -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id)
-                );
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
 
         postsRepository.delete(posts);
     }
@@ -48,7 +44,7 @@ public class PostsService {
     @Transactional(readOnly = true)
     public PostsResponseDto findById(Long id) {
         Posts entity = postsRepository.findById(id)
-                .orElseThrow( () -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id) );
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
 
         return new PostsResponseDto(entity);
     }

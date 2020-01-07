@@ -7,7 +7,7 @@ logging:
   file: logs/application-debug.log
   pattern:
     console: "%d %-5level %logger %n %msg %n"
-    file: "%d %-5level [%thread] %logger %n %msg %n"
+    file: "%d %-5level %logger %n %msg %n"
   level:
     root: ERROR
     org.springframework.web: ERROR
