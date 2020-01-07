@@ -7,11 +7,14 @@ import com.mycom.sample.services.PostsService;
 import com.mycom.sample.controllers.dtos.PostsResponseDto;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
@@ -20,6 +23,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index() {
+        log.debug("여기 1");
         return "index";
     }
 

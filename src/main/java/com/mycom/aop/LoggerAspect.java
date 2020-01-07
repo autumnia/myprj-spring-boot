@@ -19,7 +19,7 @@ public class LoggerAspect {
             type = "Controller  \t:  ";
         }
         else if (name.indexOf("Service") > -1) {
-            type = "ServiceImpl  \t:  ";
+            type = "Service  \t:  ";
         }
 
         log.debug(type + name + "." + joinPoint.getSignature().getName() + "()");
