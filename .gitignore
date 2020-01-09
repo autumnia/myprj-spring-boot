@@ -4,3 +4,4 @@
 /radle-version/
 /build/
 /build/classes/java/main/
+*.properties
