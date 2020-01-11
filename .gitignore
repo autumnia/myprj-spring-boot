@@ -7,3 +7,5 @@
 *.properties
 *.log
 *.gz
+
+application-oauth.yml

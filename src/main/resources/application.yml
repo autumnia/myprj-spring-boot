@@ -24,6 +24,7 @@ logging:
 spring:
   profiles:
     active: local
+#    include: oauth
   main:
     banner-mode: "off"
   http:
@@ -43,18 +44,6 @@ spring:
     expose-request-attributes: false
     expose-session-attributes: false
     expose-spring-macro-helpers: true
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: 구글클라이언트ID
-            client-secret: 구글클라이언트시크릿
-            scope: profile, email
-
-#spring.security.oauth2.client.registration.google.client-id: 구글클라이언트ID
-#spring.security.oauth2.client.registration.google.client-secret: 구글클라이언트시크릿
-#spring.security.oauth2.client.registration.google.scope: profile,email
 
 # registration
 #  spring.security.oauth2.client.registration.naver.client-id=네이버클라이언트ID
