@@ -1,7 +1,7 @@
 package com.mycom.sample.controllers;
 
-//import com.jojoldu.book.springboot.config.auth.LoginUser;
-//import com.jojoldu.book.springboot.config.auth.dto.SessionUser;
+import com.mycom.config.auth.*;
+import com.mycom.config.auth.dto.*;
 
 import com.mycom.sample.services.PostsService;
 import com.mycom.sample.controllers.dtos.PostsResponseDto;
@@ -24,11 +24,11 @@ public class IndexController {
     private final PostsService postsService;
 
     @GetMapping("/")
-    public String index( Model model ) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-//        if (user != null) {
-//            model.addAttribute("userName", user.getName());
-//        }
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
         return "index";
     }
 

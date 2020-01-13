@@ -75,9 +75,10 @@ spring:
 #    database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
-    show_sql: true
+
     properties:
       hibernate:
+        show_sql: true
         format_sql: true
         use_sql_comments: true
   session:
