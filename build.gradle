@@ -48,6 +48,7 @@ dependencies {
 
     // 보안
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    compile('org.apache.commons:commons-text:1.8')
     
     //  개발 지원
     runtime('org.springframework.boot:spring-boot-devtools')

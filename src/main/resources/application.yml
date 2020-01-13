@@ -24,14 +24,14 @@ logging:
 spring:
   profiles:
     active: local
-#    include: oauth
+    include: oauth
   main:
     banner-mode: "off"
   http:
     encoding:
       charset: UTF-8
       enabled: true
-        force: true
+      force: true
   mustache:
     suffix: .mustache
     allow-request-override: false
@@ -44,6 +44,11 @@ spring:
     expose-request-attributes: false
     expose-session-attributes: false
     expose-spring-macro-helpers: true
+
+
+#spring.security.oauth2.client.registration.google.client-id: 구글클라이언트ID
+#spring.security.oauth2.client.registration.google.client-secret: 구글클라이언트시크릿
+#spring.security.oauth2.client.registration.google.scope: profile,email
 
 # registration
 #  spring.security.oauth2.client.registration.naver.client-id=네이버클라이언트ID
