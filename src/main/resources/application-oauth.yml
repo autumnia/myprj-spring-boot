@@ -1,9 +1,9 @@
-#spring:
-#  security:
-#    oauth2:
-#      client:
-#        registration:
-#          google:
-#            client-id: 501805108607-sda78lbvph96ruvdfq7tm9plqi6t3e16.apps.googleusercontent.com
-#            client-secret: M4j1z4V3ZeIsowMzo8PsnAI9
-#            scope: profile, email
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 501805108607-sda78lbvph96ruvdfq7tm9plqi6t3e16.apps.googleusercontent.com
+            client-secret: M4j1z4V3ZeIsowMzo8PsnAI9
+            scope: profile, email
