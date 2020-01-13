@@ -62,18 +62,46 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tabindex="-1"
-                           href="/posts/save"  >Posts</a>
+                        <a class="nav-link" tabindex="-1" href="/posts/save"  >Posts</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link tabindex="-1"
-                           href="#"  >About</a>
+                        <a class="nav-link" tabindex="-1" href="#"  >About</a>
                     </li>
+
+
+                    <li class="nav-item dropdown">
+                        {{^userName}}
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
+                           href="#"
+                           data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Login Select
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/oauth2/authorization/google" >Google Login</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/oauth2/authorization/naver" >Naver Login</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                        {{/userName}}
+
+                        {{#userName}}
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button"
+                           href="/logout"
+                           aria-haspopup="true" aria-expanded="false">
+                            Login out ( {{userName}}님 )
+                        </a>
+                        {{/userName}}
+                    </li>
+
+                    <!--
                     <li class="nav-item">
-                        <a class="nav-link tabindex="-1"
-                           href="#"  >login</a>
+                        <a class="nav-link" tabindex="-1" href="#"  >login</a>
+                            <a href="/oauth2/authorization/google"  class="nav-link" tabindex="-1">Google Login</a>
+                            <a href="/oauth2/authorization/naver"   class="nav-link" tabindex="-1">Naver Login</a>
                     </li>
+                    -->
                 </ul>
 
                 <form class="form-inline my-2 my-lg-0">
