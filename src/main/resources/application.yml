@@ -54,7 +54,7 @@ spring:
     console:
       enabled: true
   jpa:
-#    database: mysql
+    #    database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
 
