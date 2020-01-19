@@ -30,7 +30,6 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(escapingConverter());
-
     }
 
     // XSS 처리
@@ -44,7 +43,5 @@ public class WebConfig implements WebMvcConfigurer {
 
         return escapingConverter;
     }
-
-
 
 }
