@@ -1,0 +1,97 @@
+# 서버 포트설정
+server:
+  port: 80
+
+# 로깅 추가
+logging:
+  file: logs/application-debug.log
+  pattern:
+    console: "%d %-5level %logger %n %msg %n"
+    file: "%d %-5level %logger %n %msg %n"
+  level:
+    root: ERROR
+    org.springframework.web: ERROR
+    com.mycom: DEBUG
+    #org.hibernate: INFO
+#    org:
+#      hibernate:
+#        type:
+#          descriptor:
+#            sql: trace
+
+
+# 스프링 배너 제거
+spring:
+  profiles:
+    active: local
+#    include: oauth
+  main:
+    banner-mode: "off"
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  mustache:
+    suffix: .mustache
+    allow-request-override: false
+    allow-session-override: false
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: true
+  session:
+    store-type: jdbc
+
+---
+spring:
+  profiles: local
+  h2:
+    console:
+      enabled: true
+  jpa:
+#    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+
+logging.level.org.hibernate.type.descriptor.sql: trace
+
+---
+spring:
+  profiles: dev
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+
+logging.level.org.hibernate.type.descriptor.sql: trace
+
+
+---
+spring:
+  profiles: real
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
