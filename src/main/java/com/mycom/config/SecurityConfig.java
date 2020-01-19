@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile").permitAll()
                     .antMatchers("/api/v1/**").hasRole(Role.USER.name())
-                    .anyRequest().authenticated()  // 위 설정된 값을 제외한 모든 url 적용
+                    .anyRequest().authenticated() // 위 설정된 값을 제외한 모든 url 적용
                 .and()
                     .logout()
                         .logoutSuccessUrl("/") // 로그아웃 성공 후 돌아갈 주소
