@@ -148,5 +148,4 @@ public class PostsApiControllerTest {
         //then
         List<Posts> all = postsRepository.findAll();
     }
-
 }
