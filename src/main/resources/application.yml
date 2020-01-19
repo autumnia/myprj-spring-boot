@@ -17,7 +17,7 @@ logging:
 spring:
   profiles:
     active: dev
-    include: oauth
+#    include: oauth
   main:
     banner-mode: "off"
   http:
@@ -61,6 +61,7 @@ logging.level.org.hibernate.type.descriptor.sql: trace
 ---
 spring:
   profiles: real
+  incluse: oauth, realdb
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
