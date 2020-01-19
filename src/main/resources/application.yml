@@ -17,7 +17,7 @@ logging:
 spring:
   profiles:
     active: dev
-    include: oauth
+    include: oauth, devdb
   main:
     banner-mode: "off"
   http:
