@@ -62,8 +62,8 @@ public class PostsApiControllerTest {
         postsRepository.deleteAll();
     }
 
-    @Test
     @WithMockUser(roles="USER")
+    @Test
     public void Posts_등록된다() throws Exception {
         //given
         String title = "title";

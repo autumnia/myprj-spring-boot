@@ -12,18 +12,11 @@ logging:
     root: ERROR
     org.springframework.web: ERROR
     com.mycom: DEBUG
-    #org.hibernate: INFO
-#    org:
-#      hibernate:
-#        type:
-#          descriptor:
-#            sql: trace
-
 
 # 스프링 배너 제거
 spring:
   profiles:
-    active: local
+    active: dev
     include: oauth
   main:
     banner-mode: "off"
@@ -49,31 +42,14 @@ spring:
 
 ---
 spring:
-  profiles: local
-  h2:
-    console:
-      enabled: true
-  jpa:
-    #    database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    open-in-view: false
-
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-        use_sql_comments: true
-
-logging.level.org.hibernate.type.descriptor.sql: trace
-
----
-spring:
   profiles: dev
-
+  include: oauth, devdb
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
+    hibernate:
+      ddl-auto: none
     properties:
       hibernate:
         show_sql: true
@@ -81,7 +57,6 @@ spring:
         use_sql_comments: true
 
 logging.level.org.hibernate.type.descriptor.sql: trace
-
 
 ---
 spring:
@@ -95,3 +70,5 @@ spring:
         show_sql: true
         format_sql: true
         use_sql_comments: true
+
+logging.level.org.hibernate.type.descriptor.sql: info
