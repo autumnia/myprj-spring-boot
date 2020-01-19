@@ -17,7 +17,7 @@ logging:
 spring:
   profiles:
     active: dev
-#    include: oauth
+    include: oauth, devdb
   main:
     banner-mode: "off"
   http:
@@ -37,8 +37,6 @@ spring:
     expose-request-attributes: false
     expose-session-attributes: false
     expose-spring-macro-helpers: true
-  session:
-    store-type: jdbc
 
 ---
 spring:
@@ -46,30 +44,36 @@ spring:
   include: oauth, devdb
   jpa:
     database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
     hibernate:
       ddl-auto: none
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         show_sql: true
         format_sql: true
         use_sql_comments: true
+  session:
+    store-type: jdbc
 
 logging.level.org.hibernate.type.descriptor.sql: trace
 
 ---
 spring:
   profiles: real
-  incluse: oauth, realdb
+  incluse: realdb
   jpa:
     database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
+    hibernate:
+      ddl-auto: none
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         show_sql: true
         format_sql: true
         use_sql_comments: true
+  session:
+    store-type: jdbc
 
 logging.level.org.hibernate.type.descriptor.sql: info

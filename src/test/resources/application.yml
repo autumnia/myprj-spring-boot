@@ -12,19 +12,12 @@ logging:
     root: ERROR
     org.springframework.web: ERROR
     com.mycom: DEBUG
-    #org.hibernate: INFO
-#    org:
-#      hibernate:
-#        type:
-#          descriptor:
-#            sql: trace
-
 
 # 스프링 배너 제거
 spring:
   profiles:
-    active: local
-#    include: oauth
+    active: dev
+    include: oauth, devdb
   main:
     banner-mode: "off"
   http:
@@ -44,54 +37,43 @@ spring:
     expose-request-attributes: false
     expose-session-attributes: false
     expose-spring-macro-helpers: true
-  session:
-    store-type: jdbc
-
----
-spring:
-  profiles: local
-  h2:
-    console:
-      enabled: true
-  jpa:
-#    database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    open-in-view: false
-
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-        use_sql_comments: true
-
-logging.level.org.hibernate.type.descriptor.sql: trace
 
 ---
 spring:
   profiles: dev
-
+  include: devdb
   jpa:
     database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
+    hibernate:
+      ddl-auto: none
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         show_sql: true
         format_sql: true
         use_sql_comments: true
+  session:
+    store-type: jdbc
 
 logging.level.org.hibernate.type.descriptor.sql: trace
-
 
 ---
 spring:
   profiles: real
+  incluse: realdb
   jpa:
     database: mysql
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
+    hibernate:
+      ddl-auto: none
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         show_sql: true
         format_sql: true
         use_sql_comments: true
+  session:
+    store-type: jdbc
+
+logging.level.org.hibernate.type.descriptor.sql: info

@@ -68,10 +68,11 @@ public class PostsApiControllerTest {
         //given
         String title = "title";
         String content = "content";
+        String author = "author";
         PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
-                .title(title)
+                .title( title )
                 .content(content)
-                .author("author")
+                .author( author )
                 .build();
 
         String url = "http://localhost:" + port + "/api/v1/posts";
@@ -99,7 +100,7 @@ public class PostsApiControllerTest {
                 .build());
 
         Long updateId = savedPosts.getId();
-        String expectedTitle = "title2";
+        String expectedTitle = "title";
         String expectedContent = "content2";
 
         PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
