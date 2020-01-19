@@ -7,5 +7,4 @@
 *.properties
 *.log
 *.gz
-
-/src/main/resources/application-oauth.yml
+application-oauth.yml
