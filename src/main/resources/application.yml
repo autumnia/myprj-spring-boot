@@ -61,7 +61,7 @@ logging.level.org.hibernate.type.descriptor.sql: trace
 ---
 spring:
   profiles: real
-  incluse: realdb
+  incluse: oauth, realdb
   jpa:
     database: mysql
     open-in-view: false
