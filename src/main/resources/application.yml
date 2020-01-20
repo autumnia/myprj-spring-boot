@@ -39,6 +39,8 @@ spring:
     expose-spring-macro-helpers: true
 
 ---
+server:
+  port: 8080
 spring:
   profiles: dev
   include: oauth, devdb
