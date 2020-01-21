@@ -16,7 +16,7 @@ logging:
 # 스프링 배너 제거
 spring:
   main:
-    banner-mode: "on"
+    banner-mode: "off"
   profiles:
     active: dev
     include: oauth, devdb
