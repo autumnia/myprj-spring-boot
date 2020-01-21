@@ -18,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+
     private final LoginUserArgumentResolver loginUserArgumentResolver;
 
     //  로그인 세션 반복 처리 금지  모든 controller에서 사용 가능
@@ -28,18 +29,26 @@ public class WebConfig implements WebMvcConfigurer {
 
     // Cross domain 처리
     @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        converters.add(escapingConverter());
+    public void addCorsMappings( CorsRegistry registry ) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                //.allowedOrigins("http://localhost:18080","http://localhost:8180");
+                .maxAge(3600) ;
     }
 
     // XSS 처리
+    @Override
+    public void configureMessageConverters( List<HttpMessageConverter<?>> converters ) {
+        converters.add( escapingConverter() );
+    }
+
     @Bean
     public HttpMessageConverter escapingConverter() {
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.getFactory().setCharacterEscapes(new HtmlCharacterEscapes());
+        objectMapper.getFactory().setCharacterEscapes( new HtmlCharacterEscapes() );
 
         MappingJackson2HttpMessageConverter escapingConverter =  new MappingJackson2HttpMessageConverter();
-        escapingConverter.setObjectMapper(objectMapper);
+        escapingConverter.setObjectMapper( objectMapper );
 
         return escapingConverter;
     }
