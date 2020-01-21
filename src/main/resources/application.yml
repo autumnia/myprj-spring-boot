@@ -15,17 +15,21 @@ logging:
 
 # 스프링 배너 제거
 spring:
+  main:
+    banner-mode: "off"
   profiles:
     active: dev
     include: oauth, devdb
-  main:
-    banner-mode: "off"
+  devtools:
+    livereload:
+      enabled: true
   http:
     encoding:
       charset: UTF-8
       enabled: true
       force: true
   mustache:
+    prefix: classpath:/templates/
     suffix: .mustache
     allow-request-override: false
     allow-session-override: false
