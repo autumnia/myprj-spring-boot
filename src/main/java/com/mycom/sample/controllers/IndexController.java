@@ -49,4 +49,9 @@ public class IndexController {
 
         return "posts-update";
     }
+
+//    @GetMapping("/error")
+//    public String showErrorPage() {
+//        return "index";
+//    }
 }
