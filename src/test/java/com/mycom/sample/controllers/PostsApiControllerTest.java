@@ -33,19 +33,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT )
 public class PostsApiControllerTest {
 
-    @LocalServerPort
-    private int port;
-
-    @Autowired
-    private TestRestTemplate restTemplate;
-
-    @Autowired
-    private PostsRepository postsRepository;
-
-    @Autowired
-    private WebApplicationContext context;
-
-    private MockMvc mvc;
+//    @LocalServerPort
+//    private int port;
+//
+//    @Autowired
+//    private TestRestTemplate restTemplate;
+//
+//    @Autowired
+//    private PostsRepository postsRepository;
+//
+//    @Autowired
+//    private WebApplicationContext context;
+//
+//    private MockMvc mvc;
 
 //    @Before
 //    public void setup() {
