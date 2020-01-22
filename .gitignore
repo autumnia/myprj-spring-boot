@@ -8,6 +8,7 @@
 *.log
 *.gz
 /src/main/resources/application-oauth.yml
+/src/main/resources/application-stgdb.yml
 /src/main/resources/application-devdb.yml
 /src/main/resources/application-realdb.yml
 /src/test/
