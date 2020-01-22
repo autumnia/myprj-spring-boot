@@ -18,10 +18,11 @@ logging:
 
 # 스프링 배너 제거
 spring.main.banner-mode: "off"
+spring.session.store-type: jdbc
 spring:
   profiles:
     active: dev
-#    include: oauth, devdb
+    include: oauth, devdb
   devtools:
     livereload:
       enabled: true
@@ -52,30 +53,6 @@ spring.include: oauth, devdb
 logging.file: logs/application-debug.log
 logging.level.org.hibernate.type.descriptor.sql: trace
 
-spring
-  jpa:
-    database: mysql
-    open-in-view: false
-    hibernate:
-      ddl-auto: none
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-        show_sql: true
-        format_sql: true
-        use_sql_comments: true
-  session:
-    store-type: jdbc
-
----
-server.port: 8080
-spring.profiles: stg
-spring.include: oauth, devdb
-spring.session.store-type: jdbc
-
-logging.file: /home/ec2-user/app/step1/logs/application-debug.log
-logging.level.org.hibernate.type.descriptor.sql: trace
-
 spring:
   jpa:
     database: mysql
@@ -88,25 +65,19 @@ spring:
         show_sql: true
         format_sql: true
         use_sql_comments: true
+
+---
+server.port: 8080
+spring.profiles: stg
+spring.include: oauth, stgdb
+
+logging.file: /home/ec2-user/app/step1/logs/application-debug.log
+logging.level.org.hibernate.type.descriptor.sql: trace
 
 ---
 server.port: 8080
 spring.profiles: real
 spring.include: oauth, realdb
-spring.session.store-type: jdbc
 
 logging.file: /home/ec2-user/app/step1/logs/application-debug.log
 logging.level.org.hibernate.type.descriptor.sql: info
-
-spring:
-  jpa:
-    database: mysql
-    open-in-view: false
-    hibernate:
-      ddl-auto: none
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-        show_sql: true
-        format_sql: true
-        use_sql_comments: true
