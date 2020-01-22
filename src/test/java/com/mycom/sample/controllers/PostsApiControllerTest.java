@@ -33,119 +33,119 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT )
 public class PostsApiControllerTest {
 
-//    @LocalServerPort
-//    private int port;
-//
-//    @Autowired
-//    private TestRestTemplate restTemplate;
-//
-//    @Autowired
-//    private PostsRepository postsRepository;
-//
-//    @Autowired
-//    private WebApplicationContext context;
-//
-//    private MockMvc mvc;
+    @LocalServerPort
+    private int port;
 
-//    @Before
-//    public void setup() {
-//        mvc = MockMvcBuilders
-//                .webAppContextSetup(context)
-//                .apply(springSecurity())
-//                .build();
-//
-//        System.out.println( "port: " + port ) ;
-//    }
-//
-//    @After
-//    public void tearDown() throws Exception {
-//        postsRepository.deleteAll();
-//    }
+    @Autowired
+    private TestRestTemplate restTemplate;
 
-//    @WithMockUser(roles="USER")
-//    @Test
-//    public void Posts_등록된다() throws Exception {
-//        //given
-//        String title = "title";
-//        String content = "content";
-//        String author = "author";
-//        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
-//                .title( title )
-//                .content(content)
-//                .author( author )
-//                .build();
-//
-//        String url = "http://localhost:" + port + "/api/v1/posts";
-//
-//        //when
-//        mvc.perform(post(url)
-//                .contentType(MediaType.APPLICATION_JSON_UTF8)
-//                .content(new ObjectMapper().writeValueAsString(requestDto)))
-//                .andExpect(status().isOk());
-//
-//        //then
-//        List<Posts> all = postsRepository.findAll();
-//        assertThat(all.get(0).getTitle()).isEqualTo(title);
-//        assertThat(all.get(0).getContent()).isEqualTo(content);
-//    }
+    @Autowired
+    private PostsRepository postsRepository;
 
-//    @Test
-//    @WithMockUser(roles="USER")
-//    public void Posts_수정된다() throws Exception {
-//        //given
-//        Posts savedPosts = postsRepository.save(Posts.builder()
-//                .title("title")
-//                .content("content")
-//                .author("author")
-//                .build());
-//
-//        Long updateId = savedPosts.getId();
-//        String expectedTitle = "title";
-//        String expectedContent = "content2";
-//
-//        PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
-//                .title(expectedTitle)
-//                .content(expectedContent)
-//                .build();
-//
-//        String url = "http://localhost:" + port + "/api/v1/posts/" + updateId;
-//
-//        //when
-//        mvc.perform(put(url)
-//                .contentType(MediaType.APPLICATION_JSON_UTF8)
-//                .content(new ObjectMapper().writeValueAsString(requestDto)))
-//                .andExpect(status().isOk());
-//
-//        //then
-//        List<Posts> all = postsRepository.findAll();
-//        assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
-//        assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
-//    }
+    @Autowired
+    private WebApplicationContext context;
 
-//    @Test
-//    @WithMockUser(roles="USER")
-//    public void Posts_삭제된다() throws Exception {
-//        //given
-//        Posts savedPosts = postsRepository.save(Posts.builder()
-//                .title("title")
-//                .content("content")
-//                .author("author")
-//                .build());
-//
-//        Long content_id = savedPosts.getId();
-//
-//        PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
-//                .build();
-//
-//        String url = "http://localhost:" + port + "/api/v1/posts/" + content_id;
-//
-//        //when
-//        mvc.perform(delete(url)
-//                .contentType(MediaType.APPLICATION_JSON_UTF8)
-//                .content(new ObjectMapper().writeValueAsString(requestDto)))
-//                .andExpect(status().isOk());
-//
-//        //then
-//        List<Posts> all = postsRepository.findAll();
-//    }
+    private MockMvc mvc;
+
+    @Before
+    public void setup() {
+        mvc = MockMvcBuilders
+                .webAppContextSetup(context)
+                .apply(springSecurity())
+                .build();
+
+        System.out.println( "port: " + port ) ;
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        postsRepository.deleteAll();
+    }
+
+    @WithMockUser(roles="USER")
+    @Test
+    public void Posts_등록된다() throws Exception {
+        //given
+        String title = "title";
+        String content = "content";
+        String author = "author";
+        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
+                .title( title )
+                .content(content)
+                .author( author )
+                .build();
+
+        String url = "http://localhost:" + port + "/api/v1/posts";
+
+        //when
+        mvc.perform(post(url)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(new ObjectMapper().writeValueAsString(requestDto)))
+                .andExpect(status().isOk());
+
+        //then
+        List<Posts> all = postsRepository.findAll();
+        assertThat(all.get(0).getTitle()).isEqualTo(title);
+        assertThat(all.get(0).getContent()).isEqualTo(content);
+    }
+
+    @Test
+    @WithMockUser(roles="USER")
+    public void Posts_수정된다() throws Exception {
+        //given
+        Posts savedPosts = postsRepository.save(Posts.builder()
+                .title("title")
+                .content("content")
+                .author("author")
+                .build());
+
+        Long updateId = savedPosts.getId();
+        String expectedTitle = "title";
+        String expectedContent = "content2";
+
+        PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
+                .title(expectedTitle)
+                .content(expectedContent)
+                .build();
+
+        String url = "http://localhost:" + port + "/api/v1/posts/" + updateId;
+
+        //when
+        mvc.perform(put(url)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(new ObjectMapper().writeValueAsString(requestDto)))
+                .andExpect(status().isOk());
+
+        //then
+        List<Posts> all = postsRepository.findAll();
+        assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
+        assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
+    }
+
+    @Test
+    @WithMockUser(roles="USER")
+    public void Posts_삭제된다() throws Exception {
+        //given
+        Posts savedPosts = postsRepository.save(Posts.builder()
+                .title("title")
+                .content("content")
+                .author("author")
+                .build());
+
+        Long content_id = savedPosts.getId();
+
+        PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
+                .build();
+
+        String url = "http://localhost:" + port + "/api/v1/posts/" + content_id;
+
+        //when
+        mvc.perform(delete(url)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(new ObjectMapper().writeValueAsString(requestDto)))
+                .andExpect(status().isOk());
+
+        //then
+        List<Posts> all = postsRepository.findAll();
+    }
 }
