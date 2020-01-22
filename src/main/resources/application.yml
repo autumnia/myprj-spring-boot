@@ -79,5 +79,3 @@ spring.profiles: real
 
 logging.file: /home/ec2-user/app/step1/logs/application-debug.log
 logging.level.org.hibernate.type.descriptor.sql: info
-
-
