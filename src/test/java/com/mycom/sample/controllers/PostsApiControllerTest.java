@@ -62,32 +62,32 @@ public class PostsApiControllerTest {
         postsRepository.deleteAll();
     }
 
-    @WithMockUser(roles="USER")
-    @Test
-    public void Posts_등록된다() throws Exception {
-        //given
-        String title = "title";
-        String content = "content";
-        String author = "author";
-        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
-                .title( title )
-                .content(content)
-                .author( author )
-                .build();
-
-        String url = "http://localhost:" + port + "/api/v1/posts";
-
-        //when
-        mvc.perform(post(url)
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(new ObjectMapper().writeValueAsString(requestDto)))
-                .andExpect(status().isOk());
-
-        //then
-        List<Posts> all = postsRepository.findAll();
-        assertThat(all.get(0).getTitle()).isEqualTo(title);
-        assertThat(all.get(0).getContent()).isEqualTo(content);
-    }
+//    @WithMockUser(roles="USER")
+//    @Test
+//    public void Posts_등록된다() throws Exception {
+//        //given
+//        String title = "title";
+//        String content = "content";
+//        String author = "author";
+//        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
+//                .title( title )
+//                .content(content)
+//                .author( author )
+//                .build();
+//
+//        String url = "http://localhost:" + port + "/api/v1/posts";
+//
+//        //when
+//        mvc.perform(post(url)
+//                .contentType(MediaType.APPLICATION_JSON_UTF8)
+//                .content(new ObjectMapper().writeValueAsString(requestDto)))
+//                .andExpect(status().isOk());
+//
+//        //then
+//        List<Posts> all = postsRepository.findAll();
+//        assertThat(all.get(0).getTitle()).isEqualTo(title);
+//        assertThat(all.get(0).getContent()).isEqualTo(content);
+//    }
 
     @Test
     @WithMockUser(roles="USER")
@@ -122,30 +122,30 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
 
-    @Test
+//    @Test
 //    @WithMockUser(roles="USER")
-    public void Posts_삭제된다() throws Exception {
-        //given
-        Posts savedPosts = postsRepository.save(Posts.builder()
-                .title("title")
-                .content("content")
-                .author("author")
-                .build());
-
-        Long content_id = savedPosts.getId();
-
-        PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
-                .build();
-
-        String url = "http://localhost:" + port + "/api/v1/posts/" + content_id;
-
-        //when
-        mvc.perform(delete(url)
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(new ObjectMapper().writeValueAsString(requestDto)))
-                .andExpect(status().isOk());
-
-        //then
-        List<Posts> all = postsRepository.findAll();
-    }
+//    public void Posts_삭제된다() throws Exception {
+//        //given
+//        Posts savedPosts = postsRepository.save(Posts.builder()
+//                .title("title")
+//                .content("content")
+//                .author("author")
+//                .build());
+//
+//        Long content_id = savedPosts.getId();
+//
+//        PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
+//                .build();
+//
+//        String url = "http://localhost:" + port + "/api/v1/posts/" + content_id;
+//
+//        //when
+//        mvc.perform(delete(url)
+//                .contentType(MediaType.APPLICATION_JSON_UTF8)
+//                .content(new ObjectMapper().writeValueAsString(requestDto)))
+//                .andExpect(status().isOk());
+//
+//        //then
+//        List<Posts> all = postsRepository.findAll();
+//    }
 }
