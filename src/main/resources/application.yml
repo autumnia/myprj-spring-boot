@@ -21,8 +21,8 @@ spring.main.banner-mode: "off"
 spring.session.store-type: jdbc
 spring:
   profiles:
-    active: dev
-    include: oauth, devdb
+    active: stg
+    include: oauth, stgdb
   devtools:
     livereload:
       enabled: true
