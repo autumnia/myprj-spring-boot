@@ -47,20 +47,20 @@ public class PostsApiControllerTest {
 
     private MockMvc mvc;
 
-    @Before
-    public void setup() {
-        mvc = MockMvcBuilders
-                .webAppContextSetup(context)
-                .apply(springSecurity())
-                .build();
-
-        System.out.println( "port: " + port ) ;
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        postsRepository.deleteAll();
-    }
+//    @Before
+//    public void setup() {
+//        mvc = MockMvcBuilders
+//                .webAppContextSetup(context)
+//                .apply(springSecurity())
+//                .build();
+//
+//        System.out.println( "port: " + port ) ;
+//    }
+//
+//    @After
+//    public void tearDown() throws Exception {
+//        postsRepository.deleteAll();
+//    }
 
 //    @WithMockUser(roles="USER")
 //    @Test
