@@ -56,10 +56,11 @@ spring:
         format_sql: true
         use_sql_comments: true
 
+
 ---
 server.port: 8080
 spring.profiles: dev
-spring.include: oauth, devdb
+#spring.include: oauth, devdb
 
 logging.file: logs/application-debug.log
 logging.level.org.hibernate.type.descriptor.sql: trace
@@ -67,7 +68,7 @@ logging.level.org.hibernate.type.descriptor.sql: trace
 ---
 server.port: 8080
 spring.profiles: stg
-spring.include: oauth, stgdb
+#spring.include: oauth, stgdb
 
 logging.file: /home/ec2-user/app/step1/logs/application-debug.log
 logging.level.org.hibernate.type.descriptor.sql: trace
@@ -75,7 +76,7 @@ logging.level.org.hibernate.type.descriptor.sql: trace
 ---
 server.port: 8080
 spring.profiles: real
-spring.include: oauth, realdb
+#spring.include: oauth, realdb
 
 logging.file: /home/ec2-user/app/step1/logs/application-debug.log
 logging.level.org.hibernate.type.descriptor.sql: info
