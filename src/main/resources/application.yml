@@ -24,6 +24,7 @@ spring.main.banner-mode: "off"
 spring.devtools.livereload.enabled: true
 spring.devtools.restart.enabled: true
 
+
 spring.session.store-type: jdbc
 
 spring:
