@@ -20,9 +20,11 @@ logging:
 
 # 스프링 배너 제거
 spring.main.banner-mode: "off"
-spring.session.store-type: jdbc
+
 spring.devtools.livereload.enabled: true
 spring.devtools.restart.enabled: true
+
+spring.session.store-type: jdbc
 
 spring:
   profiles:
