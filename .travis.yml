@@ -18,7 +18,7 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r myfrj-webservice *
+  - zip -r myprj-webservice *
   - mkdir -p deploy
   - mv myprj-webservice.zip deploy/myprj-webservice.zip
 
