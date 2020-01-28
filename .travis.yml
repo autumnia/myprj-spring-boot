@@ -33,6 +33,9 @@ deploy:
   - acl: private
   - local_dir: deploy
   - wait-until-deployed: true  # <= 사용 가능한 옵션인가
+  on:
+    repo: https://github.com/autumnia/myprj-spring-boot.git
+    branch: master
 
 # CI 실행 완료시 메일로 알람
 notifications:
