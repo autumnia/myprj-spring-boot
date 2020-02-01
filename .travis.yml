@@ -6,14 +6,14 @@ branches:
   only:
     - master
 
-before_install:
-  - chmod +x gradlew
-
 # Travis CI 서버의 Home
 cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
+
+before_install:
+  - chmod +x gradlew
 
 script: "./gradlew clean build"
 
@@ -27,7 +27,7 @@ deploy:
 #  - api_key: "GITHUB OAUTH TOKEN"
   - edge: true
   - access_key_id: $AWS_ACCESS_KEY
-  - secret_access_key: AKIAS4GKMHGIGAPNQA5M #$AWS_SECRET_KEY
+  - secret_access_key: $AWS_SECRET_KEY
   - bucket: myprj-build
   - region: ap-northeast-2
   - skip_cleanup: true
