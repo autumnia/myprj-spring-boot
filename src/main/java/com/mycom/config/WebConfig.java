@@ -20,13 +20,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-
-    // 로거 인터셉터
-    @Override
-    public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(new LoggerInterceptor());
-    }
-
     private final LoginUserArgumentResolver loginUserArgumentResolver;
 
     //  로그인 세션 반복 처리 금지  모든 controller에서 사용 가능
@@ -59,6 +52,12 @@ public class WebConfig implements WebMvcConfigurer {
         escapingConverter.setObjectMapper( objectMapper );
 
         return escapingConverter;
+    }
+
+    // 로거 인터셉터
+    @Override
+    public void addInterceptors(InterceptorRegistry registry){
+        registry.addInterceptor(new LoggerInterceptor());
     }
 
 }
