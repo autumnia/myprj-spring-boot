@@ -20,6 +20,7 @@ public class ExceptionHandler {
 		return mv;
 	}
 
+
 //	@org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
 //	public ModelAndView nullPointExceptionHandler( HttpServletRequest request, NullPointerException exception ){
 //		ModelAndView mv = new ModelAndView("/error/error");
