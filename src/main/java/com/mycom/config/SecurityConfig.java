@@ -18,11 +18,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             http
                 // h2-console 화면을 보기 위해 csrf disable 시킴  나중에는 제거 필요함
                 //.csrf().disable()
-                //.headers().frameOptions().disable()
-                //.and()
+                .headers().frameOptions().disable()
+                .and()
                 .authorizeRequests()
                     .antMatchers("/", "/css/**", "/images/**", "/js/**", "/profile").permitAll()
-                    .antMatchers("/api/v1/**").hasRole(Role.USER.name())
+                    .antMatchers("/api/v1/**").hasRole( Role.USER.name() )
                     .anyRequest().authenticated() // 위 설정된 값을 제외한 모든 url 적용
                 .and()
                 .csrf()
