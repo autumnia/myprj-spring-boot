@@ -33,7 +33,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings( CorsRegistry registry ) {
         registry.addMapping("/**")
                 .allowedOrigins("*")
-                //.allowedOrigins("http://localhost:18080","http://localhost:8180");
+                .allowedOrigins("http://localhost:8080","http://localhost:8081", "http://localhost:8082" )
                 .maxAge(3600) ;
     }
 
