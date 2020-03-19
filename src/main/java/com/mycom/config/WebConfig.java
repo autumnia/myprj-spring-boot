@@ -33,7 +33,8 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings( CorsRegistry registry ) {
         registry.addMapping("/**")
                 .allowedOrigins("*")
-                .allowedOrigins("http://localhost:8080","http://localhost:8081", "http://localhost:8082" )
+                .allowedMethods("PUT", "DELETE")
+                //.allowedOrigins("http://localhost:8080","http://localhost:8081", "http://localhost:8082" )
                 .maxAge(3600) ;
     }
 
@@ -58,6 +59,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry){
         registry.addInterceptor(new LoggerInterceptor());
+        registry.addInterceptor(new SameSiteInterceptor()) ;
     }
 
 }
